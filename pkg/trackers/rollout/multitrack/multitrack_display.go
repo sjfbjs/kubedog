@@ -482,7 +482,7 @@ func (mt *multitracker) displayDaemonSetsStatusProgress() {
 func (mt *multitracker) displayDeploymentsStatusProgress() {
 	t := utils.NewTable(statusProgressTableRatio...)
 	t.SetWidth(logboek.Context(context.Background()).Streams().ContentWidth() - 1)
-	t.Header("DEPLOYMENT", "REPLICAS", "AVAILABLE", "UP-TO-DATE")
+	t.Header("DEPLOYMENT", "REPLICAS", "AVAILABLE", "UP-TO-DATE", "NODENAME", "NODEIP")
 
 	resourcesNames := []string{}
 	for name := range mt.DeploymentsSpecs {
@@ -524,11 +524,14 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 				DisableWarningColors: disableWarningColors,
 			})
 		}
+		nodename := "-"
+
+		nodeip := "-"
 
 		if status.IsFailed {
-			t.Row(resource, replicas, available, uptodate, formatResourceError(disableWarningColors, status.FailedReason))
+			t.Row(resource, replicas, available, uptodate, formatResourceError(disableWarningColors, status.FailedReason), nodename, nodeip)
 		} else {
-			t.Row(resource, replicas, available, uptodate)
+			t.Row(resource, replicas, available, uptodate, nodename, nodeip)
 		}
 
 		if len(status.Pods) > 0 {
