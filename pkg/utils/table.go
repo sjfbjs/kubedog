@@ -70,7 +70,7 @@ func (t *Table) SetWidth(width int) {
 
 func (t *Table) Header(columns ...interface{}) {
 	t.withService(t.service.header, t.service.headerRest, func() {
-		fmt.Println("Header columns:", columns)
+		//fmt.Println("Header columns:", columns)
 		t.apply(columns...)
 	})
 }
