@@ -207,7 +207,7 @@ func (t *Table) getColumnsContentWidth(count int) []int {
 
 	var sum int
 	w := t.getWidth() - len([]rune(t.serviceText))
-
+	fmt.Println("w:", w)
 	if count == 1 {
 		return []int{w}
 	}
