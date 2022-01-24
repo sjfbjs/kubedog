@@ -14,7 +14,7 @@ func main() {
 		_ = logboek.Context(context.Background()).LogProcess("1").DoError(func() error {
 			t := utils.NewTable(.7, .1, .1, .1, .1, .1)
 			t.SetWidth(logboek.Context(context.Background()).Streams().ContentWidth() - 1)
-			t.Header("NAME", "REPLICAS", "UP-TO-DATE", "AVAILABLE")
+			t.Header("NAME", "REPLICAS", "UP-TO-DATE", "AVAILABLE", "NODENAME", "NODEIP")
 			t.Row("deploy/extended-monitoring", "1/1", 1, 1)
 			// t.Row("deploy/extended-monitoring", "1/1", 1, 1, color.RedString("Error: See the server log for details. BUILD FAILED (total time: 1 second)"), color.RedString("Error: An individual language user's deviations from standard language norms in grammar, pronunciation and orthography are sometimes referred to as errors"))
 			st := t.SubTable(.3, .15, .3, .15, .1)
