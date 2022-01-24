@@ -141,6 +141,8 @@ func (t *Table) apply(columns ...interface{}) {
 
 	rowsCount := 0
 	columnsContent := make([][]string, len(columnsContentWidth))
+	fmt.Println("columnsContentWidth length:", len(columnsContentWidth))
+	fmt.Println("columns:", columns)
 	for ind, field := range columns {
 		columnsContent[ind] = fitValue(field, columnsContentWidth[ind])
 
