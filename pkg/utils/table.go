@@ -202,6 +202,7 @@ func padValue(s string, n int) string {
 }
 
 func (t *Table) getColumnsContentWidth(count int) []int {
+	fmt.Println("开始执行获取内容宽度逻辑")
 	var result []int
 
 	var sum int
@@ -220,7 +221,7 @@ func (t *Table) getColumnsContentWidth(count int) []int {
 	if w-sum > 0 && len(result) > 0 {
 		result[len(result)-1] += w - sum
 	}
-
+	fmt.Println("获取内容宽度逻辑结束")
 	return result
 }
 
