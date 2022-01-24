@@ -489,7 +489,7 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 		resourcesNames = append(resourcesNames, name)
 	}
 	sort.Strings(resourcesNames)
-
+	fmt.Println("resourcesNames:", resourcesNames)
 	for _, name := range resourcesNames {
 		prevStatus := mt.PrevDeploymentsStatuses[name]
 		status := mt.DeploymentsStatuses[name]
