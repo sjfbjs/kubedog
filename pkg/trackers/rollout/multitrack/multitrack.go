@@ -128,6 +128,7 @@ func Multitrack(kube kubernetes.Interface, specs MultitrackSpecs, opts Multitrac
 		fmt.Println("遍历的deployments:", i)
 		setDefaultSpecValues(&specs.Deployments[i])
 	}
+
 	for i := range specs.StatefulSets {
 		setDefaultSpecValues(&specs.StatefulSets[i])
 	}
