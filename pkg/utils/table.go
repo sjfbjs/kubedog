@@ -137,8 +137,8 @@ func (t *Table) withService(serviceText, serviceRestText string, f func()) {
 }
 
 func (t *Table) apply(columns ...interface{}) {
+	fmt.Println("columns:", columns)
 	columnsContentWidth := t.getColumnsContentWidth(len(columns))
-
 	rowsCount := 0
 	columnsContent := make([][]string, len(columnsContentWidth))
 	fmt.Println("columnsContentWidth length:", len(columnsContentWidth))
