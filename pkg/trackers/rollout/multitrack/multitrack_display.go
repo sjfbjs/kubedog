@@ -18,7 +18,7 @@ import (
 
 var (
 	statusProgressTableRatio    = []float64{.34, .12, .12, .12, .18, .12}
-	statusProgressSubTableRatio = []float64{.40, .15, .20, .25}
+	statusProgressSubTableRatio = []float64{.40, .10, .10, .20, .10, .10}
 )
 
 func (mt *multitracker) displayResourceLogChunk(resourceKind string, spec MultitrackSpec, header string, chunk *pod.ContainerLogChunk) {
@@ -555,7 +555,7 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 
 func (mt *multitracker) displayChildPodsStatusProgress(t *utils.Table, prevPods map[string]pod.PodStatus, pods map[string]pod.PodStatus, newPodsNames []string, failMode FailMode, showProgress, disableWarningColors bool) *utils.Table {
 	st := t.SubTable(statusProgressSubTableRatio...)
-	st.Header("POD", "READY", "RESTARTS", "STATUS")
+	st.Header("POD", "READY", "RESTARTS", "STATUS", "AGE", "NODEIP")
 
 	podsNames := []string{}
 	for podName := range pods {
@@ -596,7 +596,7 @@ func (mt *multitracker) displayChildPodsStatusProgress(t *utils.Table, prevPods 
 			})
 		}
 
-		podRow = append(podRow, resource, ready, podStatus.Restarts, status)
+		podRow = append(podRow, resource, ready, podStatus.Restarts, status, podStatus.Age, podStatus.HostIP)
 		if podStatus.IsFailed {
 			podRow = append(podRow, formatResourceError(disableWarningColors, podStatus.FailedReason))
 		}
