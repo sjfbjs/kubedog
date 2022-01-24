@@ -138,13 +138,13 @@ func (t *Table) withService(serviceText, serviceRestText string, f func()) {
 }
 
 func (t *Table) apply(columns ...interface{}) {
-	fmt.Println("columns:", columns)
+	//fmt.Println("columns:", columns)
 	columnsContentWidth := t.getColumnsContentWidth(len(columns))
-	fmt.Println("columnsContentWidth:", columnsContentWidth)
+	//fmt.Println("columnsContentWidth:", columnsContentWidth)
 	rowsCount := 0
 	columnsContent := make([][]string, len(columnsContentWidth))
-	fmt.Println("columnsContentWidth length:", len(columnsContentWidth))
-	fmt.Println("columns:", columns)
+	//fmt.Println("columnsContentWidth length:", len(columnsContentWidth))
+	//fmt.Println("columns:", columns)
 	for ind, field := range columns {
 		columnsContent[ind] = fitValue(field, columnsContentWidth[ind])
 

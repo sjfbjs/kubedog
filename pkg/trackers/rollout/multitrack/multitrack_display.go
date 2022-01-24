@@ -480,7 +480,7 @@ func (mt *multitracker) displayDaemonSetsStatusProgress() {
 }
 
 func (mt *multitracker) displayDeploymentsStatusProgress() {
-	fmt.Println("displayDeploymentsStatusProgress:", statusProgressTableRatio)
+	//fmt.Println("displayDeploymentsStatusProgress:", statusProgressTableRatio)
 	t := utils.NewTable(statusProgressTableRatio...)
 	t.SetWidth(logboek.Context(context.Background()).Streams().ContentWidth() - 1)
 	t.Header("DEPLOYMENT", "REPLICAS", "AVAILABLE", "UP-TO-DATE", "NODENAME", "NODEIP")
@@ -490,7 +490,7 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 		resourcesNames = append(resourcesNames, name)
 	}
 	sort.Strings(resourcesNames)
-	fmt.Println("resourcesNames:", resourcesNames)
+	//fmt.Println("resourcesNames:", resourcesNames)
 	for _, name := range resourcesNames {
 		prevStatus := mt.PrevDeploymentsStatuses[name]
 		status := mt.DeploymentsStatuses[name]
