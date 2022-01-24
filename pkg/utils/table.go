@@ -217,7 +217,7 @@ func (t *Table) getColumnsContentWidth(count int) []int {
 		result = append(result, columnWidth)
 		sum += columnWidth
 	}
-
+	fmt.Println("获取columnWidth宽度逻辑结束")
 	if w-sum > 0 && len(result) > 0 {
 		result[len(result)-1] += w - sum
 	}
