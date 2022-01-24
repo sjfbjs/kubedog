@@ -480,6 +480,7 @@ func (mt *multitracker) displayDaemonSetsStatusProgress() {
 }
 
 func (mt *multitracker) displayDeploymentsStatusProgress() {
+	fmt.Println("displayDeploymentsStatusProgress:", statusProgressTableRatio)
 	t := utils.NewTable(statusProgressTableRatio...)
 	t.SetWidth(logboek.Context(context.Background()).Streams().ContentWidth() - 1)
 	t.Header("DEPLOYMENT", "REPLICAS", "AVAILABLE", "UP-TO-DATE", "NODENAME", "NODEIP")
