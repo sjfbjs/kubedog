@@ -202,29 +202,29 @@ func padValue(s string, n int) string {
 }
 
 func (t *Table) getColumnsContentWidth(count int) []int {
-	fmt.Println("开始执行获取内容宽度逻辑")
-	fmt.Println("count:", count)
+	//fmt.Println("开始执行获取内容宽度逻辑")
+	//fmt.Println("count:", count)
 	var result []int
 
 	var sum int
 	w := t.getWidth() - len([]rune(t.serviceText))
-	fmt.Println("w:", w)
+	//fmt.Println("w:", w)
 	if count == 1 {
 		return []int{w}
 	}
 
 	for i := 0; i < count; i++ {
 		columnWidth := int(float64(w) * t.columnsRatio[i])
-		fmt.Println(i, "的columnWidth:", columnWidth)
+		//fmt.Println(i, "的columnWidth:", columnWidth)
 		result = append(result, columnWidth)
 		sum += columnWidth
-		fmt.Println("sum:", sum)
+		//fmt.Println("sum:", sum)
 	}
-	fmt.Println("获取columnWidth宽度逻辑结束")
+	//fmt.Println("获取columnWidth宽度逻辑结束")
 	if w-sum > 0 && len(result) > 0 {
 		result[len(result)-1] += w - sum
 	}
-	fmt.Println("获取内容宽度逻辑结束")
+	//fmt.Println("获取内容宽度逻辑结束")
 	return result
 }
 
