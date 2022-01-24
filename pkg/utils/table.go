@@ -203,6 +203,7 @@ func padValue(s string, n int) string {
 
 func (t *Table) getColumnsContentWidth(count int) []int {
 	fmt.Println("开始执行获取内容宽度逻辑")
+	fmt.Println("count:", count)
 	var result []int
 
 	var sum int
