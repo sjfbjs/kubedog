@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	statusProgressTableRatio    = []float64{.58, .11, .12, .19, .18, .20}
+	statusProgressTableRatio    = []float64{.34, .8, .8, .8, .12, .12}
 	statusProgressSubTableRatio = []float64{.40, .15, .20, .25}
 )
 
