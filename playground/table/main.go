@@ -12,7 +12,7 @@ import (
 func main() {
 	_ = logboek.Context(context.Background()).LogProcess("xxx").DoError(func() error {
 		_ = logboek.Context(context.Background()).LogProcess("1").DoError(func() error {
-			t := utils.NewTable(.7, .1, .1, .1)
+			t := utils.NewTable(.7, .1, .1, .1, .1, .1)
 			t.SetWidth(logboek.Context(context.Background()).Streams().ContentWidth() - 1)
 			t.Header("NAME", "REPLICAS", "UP-TO-DATE", "AVAILABLE")
 			t.Row("deploy/extended-monitoring", "1/1", 1, 1)
