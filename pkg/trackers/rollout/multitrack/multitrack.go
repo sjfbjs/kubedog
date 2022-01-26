@@ -362,6 +362,7 @@ func (mt *multitracker) applyTrackTerminationMode() error {
 
 	for name, ctx := range mt.DeploymentsContexts {
 		if shouldContinueTracking(name, mt.DeploymentsSpecs[name]) {
+			fmt.Println("shouldContinueTracking(name, mt.DeploymentsSpecs[name]):", shouldContinueTracking(name, mt.DeploymentsSpecs[name]))
 			return nil
 		}
 		debugMsg = append(debugMsg, fmt.Sprintf("will stop context for deployment %q", name))
