@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	statusProgressTableRatio    = []float64{.34, .12, .12, .12, .18, .12}
+	statusProgressTableRatio    = []float64{.58, .12, .15, .15}
 	statusProgressSubTableRatio = []float64{.40, .10, .10, .20, .10, .10}
 )
 
@@ -483,7 +483,7 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 	//fmt.Println("displayDeploymentsStatusProgress:", statusProgressTableRatio)
 	t := utils.NewTable(statusProgressTableRatio...)
 	t.SetWidth(logboek.Context(context.Background()).Streams().ContentWidth() - 1)
-	t.Header("DEPLOYMENT", "REPLICAS", "AVAILABLE", "UP-TO-DATE", "NODENAME", "NODEIP")
+	t.Header("DEPLOYMENT", "REPLICAS", "AVAILABLE", "UP-TO-DATE")
 
 	resourcesNames := []string{}
 	for name := range mt.DeploymentsSpecs {
@@ -525,14 +525,11 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 				DisableWarningColors: disableWarningColors,
 			})
 		}
-		nodename := "-"
-
-		nodeip := "-"
 
 		if status.IsFailed {
-			t.Row(resource, replicas, available, uptodate, formatResourceError(disableWarningColors, status.FailedReason), nodename, nodeip)
+			t.Row(resource, replicas, available, uptodate, formatResourceError(disableWarningColors, status.FailedReason))
 		} else {
-			t.Row(resource, replicas, available, uptodate, nodename, nodeip)
+			t.Row(resource, replicas, available, uptodate)
 		}
 
 		if len(status.Pods) > 0 {
