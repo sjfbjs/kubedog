@@ -210,7 +210,7 @@ func Multitrack(kube kubernetes.Interface, specs MultitrackSpecs, opts Multitrac
 			}
 
 		case <-doneChan:
-			fmt.Printf("更新或者重启完成\n")
+			fmt.Printf("获取成功\n")
 			if debug.Debug() {
 				fmt.Printf("-- Multitrack doneChan signal received => exiting\n")
 			}
