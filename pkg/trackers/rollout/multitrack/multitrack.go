@@ -210,12 +210,11 @@ func Multitrack(kube kubernetes.Interface, specs MultitrackSpecs, opts Multitrac
 			}
 
 		case <-doneChan:
+			//再来一次就退出
+			doDisplayStatusProgress()
 			if debug.Debug() {
-				//再来一次就退出
-				doDisplayStatusProgress()
 				fmt.Printf("-- Multitrack doneChan signal received => exiting\n")
 			}
-
 			return nil
 
 		case err := <-errorChan:
@@ -324,6 +323,7 @@ func (mt *multitracker) Start(kube kubernetes.Interface, specs MultitrackSpecs, 
 			mt.displayFailedTrackingResourcesServiceMessages()
 			errorChan <- mt.formatFailedTrackingResourcesError()
 		} else {
+
 			if debug.Debug() {
 				fmt.Printf("-- Multitrack send doneChan signal from workgroup wait goroutine\n")
 			}

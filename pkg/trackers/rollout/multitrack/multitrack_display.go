@@ -214,7 +214,7 @@ func (mt *multitracker) displayMultitrackErrorMessageF(format string, a ...inter
 
 func (mt *multitracker) displayStatusProgress() error {
 	displayLn := false
-	fmt.Println("current mt.displayCalled:", mt.displayCalled)
+	//fmt.Println("current mt.displayCalled:", mt.displayCalled)
 	if mt.displayCalled {
 		displayLn = true
 	}
