@@ -533,6 +533,7 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 		}
 
 		if len(status.Pods) > 0 {
+			fmt.Println("current status pods:", len(status.Pods))
 			st := mt.displayChildPodsStatusProgress(&t, prevStatus.Pods, status.Pods, status.NewPodsNames, spec.FailMode, showProgress, disableWarningColors)
 			extraMsg := ""
 			if len(status.WaitingForMessages) > 0 {
