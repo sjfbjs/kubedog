@@ -332,8 +332,8 @@ func (mt *multitracker) Start(kube kubernetes.Interface, specs MultitrackSpecs, 
 }
 
 func (mt *multitracker) applyTrackTerminationMode() error {
+	fmt.Println("applyTrackTerminationMode mt.isTerminating:", mt.isTerminating)
 	if mt.isTerminating {
-		fmt.Println("applyTrackTerminationMode mt.isTerminating:", mt.isTerminating)
 		err := mt.displayStatusProgress()
 		if err != nil {
 			return err
