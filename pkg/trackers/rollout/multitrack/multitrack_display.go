@@ -594,6 +594,9 @@ func (mt *multitracker) displayChildPodsStatusProgress(t *utils.Table, prevPods 
 				DisableWarningColors: disableWarningColors,
 				IsResourceNew:        isPodNew,
 			})
+			if status == "Running -> Terminating" {
+				status = "正在删除"
+			}
 			podRow = append(podRow, resource, ready, podStatus.Restarts, status, podStatus.Age, podStatus.HostIP)
 			if podStatus.IsFailed {
 				podRow = append(podRow, formatResourceError(disableWarningColors, podStatus.FailedReason))
