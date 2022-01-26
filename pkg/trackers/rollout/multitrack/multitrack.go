@@ -125,7 +125,7 @@ func Multitrack(kube kubernetes.Interface, specs MultitrackSpecs, opts Multitrac
 	}
 
 	for i := range specs.Deployments {
-		fmt.Println("遍历的deployments:", i)
+		//fmt.Println("遍历的deployments:", i)
 		setDefaultSpecValues(&specs.Deployments[i])
 	}
 
@@ -211,6 +211,8 @@ func Multitrack(kube kubernetes.Interface, specs MultitrackSpecs, opts Multitrac
 
 		case <-doneChan:
 			if debug.Debug() {
+				//再来一次就退出
+				doDisplayStatusProgress()
 				fmt.Printf("-- Multitrack doneChan signal received => exiting\n")
 			}
 
