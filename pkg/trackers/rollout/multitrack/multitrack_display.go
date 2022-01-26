@@ -594,14 +594,12 @@ func (mt *multitracker) displayChildPodsStatusProgress(t *utils.Table, prevPods 
 				DisableWarningColors: disableWarningColors,
 				IsResourceNew:        isPodNew,
 			})
+			podRow = append(podRow, resource, ready, podStatus.Restarts, status, podStatus.Age, podStatus.HostIP)
+			if podStatus.IsFailed {
+				podRow = append(podRow, formatResourceError(disableWarningColors, podStatus.FailedReason))
+			}
+			podRows = append(podRows, podRow)
 		}
-
-		podRow = append(podRow, resource, ready, podStatus.Restarts, status, podStatus.Age, podStatus.HostIP)
-		if podStatus.IsFailed {
-			podRow = append(podRow, formatResourceError(disableWarningColors, podStatus.FailedReason))
-		}
-
-		podRows = append(podRows, podRow)
 	}
 
 	st.Rows(podRows...)
