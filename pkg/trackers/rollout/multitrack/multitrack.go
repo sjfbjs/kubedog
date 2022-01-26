@@ -333,7 +333,7 @@ func (mt *multitracker) Start(kube kubernetes.Interface, specs MultitrackSpecs, 
 }
 
 func (mt *multitracker) applyTrackTerminationMode() error {
-	fmt.Println("applyTrackTerminationMode mt.isTerminating:", mt.isTerminating)
+	//fmt.Println("applyTrackTerminationMode mt.isTerminating:", mt.isTerminating)
 	if mt.isTerminating {
 		err := mt.displayStatusProgress()
 		if err != nil {
@@ -361,7 +361,7 @@ func (mt *multitracker) applyTrackTerminationMode() error {
 	var debugMsg []string
 
 	for name, ctx := range mt.DeploymentsContexts {
-		fmt.Println("shouldContinueTracking(name, mt.DeploymentsSpecs[name]):", shouldContinueTracking(name, mt.DeploymentsSpecs[name]))
+		//fmt.Println("shouldContinueTracking(name, mt.DeploymentsSpecs[name]):", shouldContinueTracking(name, mt.DeploymentsSpecs[name]))
 		if shouldContinueTracking(name, mt.DeploymentsSpecs[name]) {
 			return nil
 		}
