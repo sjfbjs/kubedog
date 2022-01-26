@@ -214,6 +214,7 @@ func (mt *multitracker) displayMultitrackErrorMessageF(format string, a ...inter
 
 func (mt *multitracker) displayStatusProgress() error {
 	displayLn := false
+	fmt.Println("current mt.displayCalled:", mt.displayCalled)
 	if mt.displayCalled {
 		displayLn = true
 	}
@@ -547,7 +548,7 @@ func (mt *multitracker) displayDeploymentsStatusProgress() {
 	}
 
 	if len(resourcesNames) > 0 {
-		fmt.Println("resourcesNames length:", len(resourcesNames))
+		//fmt.Println("resourcesNames length:", len(resourcesNames))
 		logboek.Context(context.Background()).Log(t.Render())
 	}
 }
