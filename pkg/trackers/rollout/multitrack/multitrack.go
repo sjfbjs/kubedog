@@ -210,8 +210,6 @@ func Multitrack(kube kubernetes.Interface, specs MultitrackSpecs, opts Multitrac
 			}
 
 		case <-doneChan:
-			//再来一次就退出
-			doDisplayStatusProgress()
 			if debug.Debug() {
 				fmt.Printf("-- Multitrack doneChan signal received => exiting\n")
 			}
@@ -335,6 +333,7 @@ func (mt *multitracker) Start(kube kubernetes.Interface, specs MultitrackSpecs, 
 
 func (mt *multitracker) applyTrackTerminationMode() error {
 	if mt.isTerminating {
+		mt.displayStatusProgress()
 		return nil
 	}
 
